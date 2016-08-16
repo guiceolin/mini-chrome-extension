@@ -1,5 +1,4 @@
-chrome.browserAction.onClicked.addListener(function(tab) {
-  var text = tab.url
+function copyToClipboard(text) {
   var copyDiv = document.createElement('div');
   copyDiv.contentEditable = true;
   document.body.appendChild(copyDiv);
@@ -9,4 +8,8 @@ chrome.browserAction.onClicked.addListener(function(tab) {
   document.execCommand('SelectAll');
   document.execCommand("Copy", false, null);
   document.body.removeChild(copyDiv);
+}
+chrome.browserAction.onClicked.addListener(function(tab) {
+  var text = tab.url
+  copyToClipboard(text)
 });
