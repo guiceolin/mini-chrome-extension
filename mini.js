@@ -10,6 +10,21 @@ function copyToClipboard(text) {
   document.body.removeChild(copyDiv);
 }
 chrome.browserAction.onClicked.addListener(function(tab) {
-  var text = tab.url
-  copyToClipboard(text)
+  var original = tab.url
+
+  fetch("http://mini.ceol.in/urls.json", {
+    method: 'post',
+    headers: {
+          "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+        },
+    body: 'original=' + original
+  }).then(function(res) {return res.json()} ).then(function(response){
+    copyToClipboard(response.url.short)
+    chrome.browserAction.setIcon({
+      path: "done.png",
+      tabId: tab.id
+    });
+  }).catch(function(){
+    console.log('oh noes')
+  })
 });

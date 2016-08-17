@@ -11,7 +11,8 @@
   },
   "permissions": [
    "activeTab",
-   "clipboardWrite"
+   "clipboardWrite",
+   "http://mini.ceol.in/"
   ],
   "background": {
     "scripts": ["mini.js"],
