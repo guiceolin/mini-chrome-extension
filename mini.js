@@ -12,7 +12,7 @@ function copyToClipboard(text) {
 chrome.browserAction.onClicked.addListener(function(tab) {
   var original = tab.url
 
-  fetch("http://mini.ceol.in/urls.json", {
+  fetch("http://m.ceol.in/urls.json", {
     method: 'post',
     headers: {
           "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"

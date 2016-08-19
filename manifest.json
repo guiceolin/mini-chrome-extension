@@ -12,7 +12,7 @@
   "permissions": [
    "activeTab",
    "clipboardWrite",
-   "http://mini.ceol.in/"
+   "http://m.ceol.in/"
   ],
   "background": {
     "scripts": ["mini.js"],
